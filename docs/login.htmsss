@@ -1,0 +1,125 @@
+<html>
+<head>
+<!--
+     NOTE:
+     To include graphics on this page, place the graphics in the public subdirectory
+  and use links such as:
+     <img src="/public/logo.gif">
+     It is important to use /public/ instead of just public/ since some EZproxy
+     login URLs are not be relative to /
+-->
+<title>e-Biblioteca Ingreso</title>
+<link rel="shortcut icon" href="http://biblioteca.unicundi.edu.co/biblioteca/wp-content/uploads/2015/03/favicon.png">
+<style type="text/css">
+.Estilo18 {	color: #0C332F;
+	font-weight: bold;
+}
+.Estilo11 {color: #000066}
+input.text, select.text, textarea.text {
+	border: 1px solid #0C332F;
+	border-radius: 5px 5px 5px 5px;
+	color: #0C332F;
+	font-size: 12px;
+	padding: 5px;
+	background-color: #DDD;
+}
+.Estilo21 {color: #000000}
+.Estilo26 {color: #000000; font-size: 13px; }
+.Estilo32 {font-size: 13px;}
+.Estilo33 {font-size: 16px; font-family: Arial, Helvetica, sans-serif;color: #0C332F; }
+.Estilo34 {font-size: 11px; font-family: Arial, Helvetica, sans-serif; }
+.Estilo35 {color: #000000; font-size: 12px; }
+a:link {
+	color: #000000;
+}
+a:visited {
+	color: #000000;
+}
+a:hover {
+	color: #000000;
+}
+a:active {
+	color: #000000;
+}
+.Estilo52 {	font-size: 12px;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.Estilo51 {color: #999999}
+.Estilo54 {font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: #0C332F; font-weight: bold;}
+.Estilo56 {font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: bold;color: #0C332F;  }
+.body{
+  background-color: #000;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+<META NAME="subject" CONTENT=" Bases de Datos Universidad de Cundinamarca">
+<META NAME="Description" CONTENT="Todas las bases de datos a tu disposición">
+<body >
+<table width="965" border="0" align="center">
+  <tr>
+    <td width="1076" height="185"><div align="center"><img src="http://biblioteca.unicundi.edu.co/biblioteca/wp-content/uploads/2015/07/banner.png" width="953" height="181">
+    </div>
+    <div align="center"></div></td>
+  </tr>
+</table>
+<p align=center class="Estilo18" style='text-align:center'><span
+  style='font-family:Arial;mso-text-animation: blink-background'><font size="4">! Bienvenido al servicio e-Biblioteca de la UNIVERSIDAD DE CUNDINAMARCA !</font></span></p>
+<table width="961" height="22" border="0" align="center" bordercolor="#181818">
+  <tr>
+    <th width="1035" scope="col"><div align="center" class="Estilo32">
+      <p class="Estilo35"><span style="FONT-FAMILY: Arial, Helvetica, sans-serif">Si tiene problemas con su contrase&ntilde;a click </span><span style="font-family: Arial, Helvetica, sans-serif"><a href="http://www.unicundi.edu.co/index.php/plataforma/recuperacion-contrasena" target="_blank">aqu&iacute..</a></span> </p>
+    </div></th>
+  </tr>
+</table bgcolor="#000" >
+<hr size=1 width="100%" noshade color="#fff" align=center>
+<form action="/login" method="post">
+  
+                      <center><table width="956" border="0" bordercolorlight="#FFFFFF">
+                      <tr><td width="78" height="30" align="right">
+                          <input type="hidden" name="url" value="^U" />
+                          <spaxn class="Estilo32"><font face="Arial"><b><span class="Estilo11"><span class="Estilo21">U</span></span><span class="Estilo21">suario:</span></b></font></span></td>
+                       <td width="122" bgcolor="#FFFFFF">
+                          <input type="text"   class="text"  name="user" />
+                       </td>
+                       <td width="558">
+                        <div align="justify"><span class="Estilo33">Los datos de ingreso son los mismos de la plataforma institucional</span>. </div></td>
+                      </tr>
+                      <tr>
+			<td align="right">
+                        <font face="Arial"><b><span class="SpellE"><span class="Estilo26">C</span></span><span class="Estilo26">ontrase&ntilde;a:</span></b></font>                       </td>
+                       <td bgcolor="#FFFFFF">
+                        <input name="pass" type="password" class="text " /></td>
+                      
+                      </tr>
+                        <tr><td colspan="3" align="center">
+                           
+                              <input type="submit" value="Ingresar" />
+                            </td>
+                        </tr>
+                         </table>
+</center>
+<br>                  
+</form>
+<table width="974" border="0" align="center" bordercolor="#000">
+  <tr>
+    <th width="999" scope="col">
+     <p align="center" class="Estilo56">"Los art&iacute;culos y dem&aacute;s  informaci&oacute;n obtenida de los recursos electr&oacute;nicos suscritos por la Universidad de Cundinamarca, no deber&aacute;n ser descargados de manera  excesiva ni ser re-publicados en cualquier otro medio". </p> </th>
+  </tr>
+</table>
+<br>
+<br>
+<br>
+<table width="974" border="0" align="center" bordercolor="#181818">
+  <tr>
+    <th width="999" bgcolor="#DEDEDE" scope="col"> <br><span class="Estilo52">Biblioteca-Universidad de Cundinamarca <br>Sede Principal Fusagasug&aacute - Diagonal 18 No. 20-29 PBX 1-8732512/30 - Fax 1-8732554 - L&iacutenea Gratuita 018000976000 Instituci&oacuten de Educaci&oacuten Superior Sujeta a Inspecci&oacuten y Vigilancia por el Ministerio de Educaci&oacuten Nacional  <br>
+Dise&ntildeo: Unidad de Apoyo Acad&eacutemico/Biblioteca- 2015 <br>
+biblioteca.fusagasuga@mail.unicundi.edu.co <br>
+<a href="http://biblioteca.unicundi.edu.co">biblioteca.unicundi.edu.co</a><br>
++ 57 8732512 EXT 183
+ <br></span></p>
+    </th>
+  </tr>
+</table>
+</body>
+</html>
