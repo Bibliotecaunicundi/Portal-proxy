@@ -1,0 +1,245 @@
+##  For more information on this file, see:
+##          http://www.oclc.org/support/documentation/ezproxy/cfg/
+##                                   AND  
+##          http://www.oclc.org/support/documentation/ezproxy/db/
+
+##  In this file, lines starting with # are comments.  The lines starting
+##  with ##  are meant solely as comments, whereas the lines starting with
+##  only # are followed by example entries.
+
+
+##  PLEASE NOTE: IF YOU CHANGE THIS FILE, you must restart EZproxy to make
+##  those changes take effect. == see http://www.oclc.org/support/documentation/ezproxy/restart.htm
+
+
+# ****************************EZproxy options *****************************************
+
+## After running 'EZproxy -c' to test connectivity as instructed in the install guides
+## (http://www.oclc.org/us/en/support/documentation/ezproxy/download/), 
+##  If necessary, Name your EZproxy server 
+## == http://www.oclc.org/support/documentation/ezproxy/cfg/name/
+
+Name e-biblioteca.unicundi.edu.co
+
+
+##  EZproxy must be set to Proxy-by-port?or to Proxy-by-hostname:
+##  see http://www.oclc.org/support/documentation/ezproxy/portvshostname.htm
+##                             AND
+##  http://www.oclc.org/support/documentation/ezproxy/cfg/proxybyhostname.htm 
+
+# Option ProxyByHostname
+
+##  By default, EZproxy listens on port 2048. You can specify a different port here
+
+# LoginPort 80
+
+
+##  SSL == see: http://www.oclc.org/support/documentation/ezproxy/cfg/ssl/
+##  If using Proxy by HostName you must use a wildcard SSL certificate
+##  Please review http://www.oclc.org/support/documentation/ezproxy/cfg/ssl/certopts.htm before implementing SSL 
+
+LoginPortSSL 443
+
+
+##  Connection limits. == see: http://www.oclc.org/support/documentation/ezproxy/cfg/limits.htm
+
+MaxLifetime 60
+MaxSessions 5000
+MaxVirtualHosts 1000
+
+
+##  When using Safari 2.0 and later with only three hostname components, Safari defaults to blocking the cookie. With EZproxy 3.6c GA
+## (2006-03-10) or later, you can add add the following to work around the restriction.
+# Option SafariCookiePatch
+
+
+##  Securing EZproxy == see: http://www.oclc.org/support/documentation/ezproxy/example/securing.htm 
+
+Audit Most
+AuditPurge 7
+Option StatusUser
+#Option LogSession
+IntruderIPAttempts -interval=5 -expires=15 20
+IntruderUserAttempts -interval=5 -expires=15 10
+UsageLimit -enforce -interval=15 -expires=120 -MB=100 Global
+
+##  Logging == see: http://www.oclc.org/support/documentation/ezproxy/cfg/logformat/
+##                                            AND
+##                  http://www.oclc.org/support/documentation/ezproxy/cfg/logfile/
+
+Option LogUser
+LogFormat %h %{ezproxy-session}i %u %t "%r" %s %b
+LogFile -strftime ezp%Y%m.log
+
+# **************************** Database Definitions *****************************************?
+##  See http://www.oclc.org/support/documentation/ezproxy/db/default.htm
+
+##  The following databases require no authentication,
+##  but demonstrate EZproxy functionality, and can be used for testing.
+##  Remove as desired.
+
+T Worldcat.org
+U http://worldcat.org
+DJ worldcat.org
+
+T Ebooks
+U http://www.ebooks7-24.com/
+DJ ebooks7-24.com
+
+T vlex
+U http://vlex.com/account/login_ip 
+DJ vlex.com/account/login_ip
+
+T naxos
+U http://www.naxos.com/
+Host www.naxos.com
+DJ naxos.com
+
+T Nueva Biblioteca Digital Pearson
+U http://www.biblionline.pearson.com/AuthURLEzProxyNew.aspx?i=N%2foFkdYCd8vNY%2fVoGPORWg%3d%3d
+HJ biblionline.pearson.com
+DJ www.biblionline.pearson.com
+
+Title Ovid
+URL http://ovidsp.ovid.com/autologin.html
+Host https://ovidsp.ovid.com
+Host ovidsp.ovid.com
+Host ovidsp.tx.ovid.com
+Host gateway.ovid.com
+Host www.anatomy.tv
+Host anatomy.tv
+Host nursing.ovid.com
+Host https://anatomy.tv
+Host https://secure.anatomy.tv
+DJ ovid.com
+DJ anatomy.tv
+Find returnUrl=http://
+Replace returnUrl=http://^A
+Find id="returnUrl" value="[http://%0bReplace%20id=]http://
+Replace id="returnUrl" value="http://^A
+
+# Elsevier ScienceDirect
+Cookie BROWSER_SUPPORTS_COOKIES=1; domain=.sciencedirect.com
+Cookie theproxy=ezproxy; domain=.sciencedirect.com
+AnonymousURL +http://rss.sciencedirect.com/*
+Title SciVerse ScienceDirect
+URL http://www.sciencedirect.com/
+DJ sciencedirect.com
+DJ els-cdn.com
+HJ linkinghub.elsevier.com
+Find value="http://
+Replace value="http://^A
+Find name="redirectURL" value="http://www.sciencedirect.com
+Replace name="redirectURL" value="http://^pwww.sciencedirect.com^
+Option Cookie
+AnonymousURL -*
+
+# Elsevier Scopus
+Option Cookie
+ProxyHostnameEdit www.scopus.com$ www-scopus-com
+AnonymousURL +http://syndic8.scopus.com/*
+Title SciVerse Scopus
+MimeFilter application/json .* javascript
+URL http://www.scopus.com/home.url
+DJ scopus.com
+Find %22%3A%22http%3A%2F%2Fsciverse-shindig.elsevier.com%2F
+Replace %22%3A%22http%3A%2F%2F^psciverse-shindig.elsevier.com^%2F
+Find gsUrl%22%3A%22http%3A%2F%2Fwww.scopus.com%2F
+Replace gsUrl%22%3A%22http%3A%2F%2F^pwww.scopus.com^%2F
+NeverProxy www.elsevier.com
+AnonymousURL -*
+
+
+Option DomainCookieOnly 
+Title IEEE Xplore 
+URL http://ieeexplore.ieee.org/xpl/bkBrowse.jsp 
+Host www.ieee.org 
+Host www.ieeexplore.ieee.org 
+Domain ieee.org 
+Option Cookie
+
+
+Title Nature Publishing
+URL http://www.nature.com
+DJ nature.com
+DJ natureasia.com
+DJ nexus.ensighten.com
+DJ ensignten.com
+DJ scientificamerican.com
+HJ www.naturesj.com
+HJ www.npgjournals.com
+HJ search.nature.com
+HJ ad.doubleclick.net
+HJ nature.com
+DJ naturesj.com
+DJ npgjournals.com
+Find nexus.ensighten.com
+Replace ^pnexus.ensighten.com^
+
+Title Naxos Music Library
+URL http://unicundi.NaxosMusicLibrary.com
+Domain naxosmusiclibrary.com
+DJ naxosmusiclibrary.com
+DJ www.naxosmusiclibrary.com
+## Naxos Music Library Images CDN Location
+NeverProxy cdn.naxosmusiclibrary.com
+NeverProxy cdn.naxos.com
+## Naxos Music Library Audio CDN Location
+NeverProxy 80audiostream.naxosmusiclibrary.com
+## Naxos Music Library Aux Audio CDN Location
+NeverProxy cp82361.edgefcs.net
+
+##  Many sites use dx.doi.org when linking from one database to another.
+##  This definition is recommended for all configurations.?
+##  See http://www.oclc.org/support/documentation/ezproxy/db/doi.htm for details 
+
+Title -hide DOI System
+URL http://dx.doi.org
+Domain doi.org
+
+
+## **************************** OCLC Services *************************************************
+## Some OCLC services have been pre-configured with default settings below. remove the '#' from each line 
+## associated with the desired service, and add additional options as desired 
+
+## -----------------------------  OCLC FirstSearch ----------------------------------------------
+# T OCLC FirstSearch
+# U http://firstsearch.oclc.org/FSIP
+# DJ oclc.org
+
+## ---------------------------- Camio and Archive Grid ---------------------------------------------
+
+# T ArchiveGrid
+# U http://archivegrid.org
+# DJ archivegrid.org
+
+# T CAMIO
+# U http://camio.oclc.org
+# DJ camio.oclc.org
+ 
+## --------------------------- NetLibrary ---------------------------------------------------------
+## Netlibrary can be configured for Single Sign on (SSO) or standard IP recognition access.
+## Edit the appropriate stanza for your isntitution. See http://www.oclc.org/support/documentation/ezproxy/db/netlibrary.htm/ for details
+
+
+## -- Standard IP recognition --
+# Title NetLibrary
+# URL http://www.netlibrary.com/
+# Domain netlibrary.com
+
+## -- Single Sign On (SSO) --
+
+# Title NetLibrary
+# URL http://www.netlibrary.com/
+# NetLibrary [libraryid]
+ 
+## NOTE : Replace [libraryid] in the line above with the appropriate ID
+
+## ************************ USER DEFINED DATABASES *************************************************
+
+## The section below is for all other user-defined databases  
+## Please see: http://www.oclc.org/support/documentation/ezproxy/db/default.htm for configuration
+## information for common and supported stanzas
+
+## You may also want to join the EZproxy listserv
+## To subscribe see: http://www.oclc.org/support/documentation/ezproxy/list.htm 
